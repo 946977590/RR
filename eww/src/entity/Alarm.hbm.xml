@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- 1 配置类和表对应 
+		class标签
+		name属性：实体类全路径
+		table属性：数据库表名称
+	-->
+	<class name="entity.Alarm" table="t_alarm">
+		<!-- 2 配置实体类id和表id对应 
+			hibernate要求实体类有一个属性唯一值
+			hibernate要求表有字段作为唯一值
+		-->
+		<!-- id标签
+			name属性：实体类里面id属性名称
+			column属性：生成的表字段名称
+		 -->
+		<id name="alarm_id" column="alarm_id">
+			<!-- 设置数据库表id增长策略 
+				native:生成表id值就是主键自动增长
+			-->
+			<generator class="native"></generator>
+		</id>
+		<!-- 配置其他属性和表字段对应 
+			name属性：实体类属性名称
+			column属性：生成表字段名称
+		-->
+		<property name="alarm_name" column="alarm_name"></property>
+		<property name="alarm_pc" column="alarm_pc"></property>
+		<property name="alarm_type" column="alarm_type"></property>
+		<property name="alarm_user" column="alarm_user"></property>
+		<property name="alarm_way" column="alarm_way"></property>
+		<property name="mainframe_id" column="mainframe_id"></property>
+		<property name="alarm_describe" column="alarm_describe"></property>
+	</class>
+</hibernate-mapping>
